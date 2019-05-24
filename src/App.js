@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PickCountriesBox from './containers/PickCountriesBox.js';
-// import ShowCountriesBox from './containers/ShowCountriesBox.js';
+import ShowCountriesBox from './containers/ShowCountriesBox.js';
 import { connect } from 'react-redux';
 import './App.css';
 
@@ -15,7 +15,7 @@ class App extends Component {
       <>
         <h1>Bucket List App</h1>
         <PickCountriesBox />
-        {/*<ShowCountriesBox />*/}
+        <ShowCountriesBox />
       </>
     )
   }
