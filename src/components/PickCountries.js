@@ -69,25 +69,27 @@ class PickCountries extends Component {
 
   render() {
     return (
-      <>
-      <div className='flex'>
-        Filter: {this.filterLetters()}
-      </div>
+      <div id='pick-form-container'>
+        <h1>Bucket List App</h1>
 
-      <form onSubmit={this.handleFormSubmit} autoComplete='off'>
-      <label htmlFor='countryPick'>Pick: </label>
-        <select
-          name='countryPick'
-          id='countryPick'
-          value={this.state.countryPick}
-          onChange={this.handleCountryChange}
-        >
-          {this.selectOptions()}
-        </select>
-        <input type='submit' value='Add To List' />
-        <h4 id="list-divider"className="ui horizontal divider header">The List</h4>
-      </form>
-      </>
+        <div className='flex'>
+          Filter: {this.filterLetters()}
+        </div>
+
+        <form onSubmit={this.handleFormSubmit} autoComplete='off'>
+        <label htmlFor='countryPick'>Pick: </label>
+          <select
+            name='countryPick'
+            id='countryPick'
+            value={this.state.countryPick}
+            onChange={this.handleCountryChange}
+          >
+            {this.selectOptions()}
+          </select>
+          <input type='submit' value='Add To List' />
+          <h4 id="list-divider"className="ui horizontal divider header">The List</h4>
+        </form>
+      </div>
     )
   }
 

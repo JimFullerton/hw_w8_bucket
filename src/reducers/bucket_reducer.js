@@ -6,7 +6,9 @@ const bucketReducer = (state = [], action) => {
 
     case 'MARK_AS_DONE':
       return state.map((element) => {
-        if (element.id === action.bucketId)
+        console.log('in reducer, logging action.bucketId', action.bucketId);
+        console.log('in reducer, logging element.id', element.id);
+        if (element.country == action.bucketId)
           return {...element, done: true};
         else
           return element;

@@ -14,12 +14,15 @@ const ShowCountries = (props) => {
       region={props.countries[bucketItem.country].region}
       subregion={props.countries[bucketItem.country].subregion}
       flag={props.countries[bucketItem.country].flag}
+      // markDoneFunc={props.markAsDone()}
     />
   });
 
   return (
-    <div id='bucket-list'>
+    <div id='main'>
+    <div id='bucket-list' className='grid-container'>
       {bucketList}
+    </div>
     </div>
   );
 

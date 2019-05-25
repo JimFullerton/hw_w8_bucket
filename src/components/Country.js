@@ -1,35 +1,42 @@
+import { connect } from 'react-redux';
 import React from 'react';
-import './main.css'
+import './Country.css'
 
 const Country = (props) => {
 
-  console.log('in Country.js, logging props:', props);
+  console.log(props);
 
   const handleDoneClick = (evt) => {
-    ;
+    console.log('in Country, button click, logging evt', evt.target.value);
+    const bucketId = evt.target.value;
+    props.markAsDone(bucketId);
+    console.log('other side of call');
   }
 
   const done = props.bucketItem;
 
-  console.log('done?', done);
-  // const {index} = props.index;
-
   return (
-    <div className='bucket-card'>
-    <button onClick={handleDoneClick}>Mark As Done</button>
-    <h4>{props.name}</h4>
-    <p>{props.region} / {props.subregion}</p>
-    <img src={props.flag} alt={props.name}/>
+    <div className='grid-item' id='country-card'>
+      <button value={props.bucketItem.country} id='done-button' onClick={handleDoneClick}>Mark As Done</button>
+      <p id='country-name'>{props.name}</p>
+      <p id='region-info'>{props.region} / {props.subregion}</p>
+      <div id='flag-div' className='image'>
+        <img id='flag-img' src={props.flag} alt={props.name}/>
+      </div>
     </div>
   )
-
 }
 
-export default Country;
+const mapDispatchToProps = (dispatch) => ({
+  markAsDone(bucketId) {
+    console.log('in dispatch, logging bucketId', bucketId);
+    dispatch({
+      type: 'MARK_AS_DONE',
+      bucketId
+    })
+  }
+})
 
+export default connect(null, mapDispatchToProps)(Country);
 
-// <div className='bucket-card'>
-// <button onClick={ handleDoneClick }>DONE</button>
-// <h4>CtryID: {country}</h4>
-// <p>Done flag: {done}</p>
-// </div>
+// export default Country;
