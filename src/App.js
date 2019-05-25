@@ -28,6 +28,7 @@ const mapDispatchToProps = (dispatch) => ({
       fetch('https://restcountries.eu/rest/v2/all')
       .then(res => res.json())
       .then(countriesData => {
+        console.log('in app, fetched countriesData: ', countriesData);
         dispatch({
           type: 'ADD_COUNTRIES',
           newCountries: countriesData

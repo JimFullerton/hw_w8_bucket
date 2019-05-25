@@ -2,7 +2,8 @@ const countryReducer = (state = [], action) => {
   switch (action.type) {
 
     case 'ADD_COUNTRIES':
-      return [...state, action.newCountries];
+    const newState = action.newCountries;
+      return newState;
 
     default:
       return state;
