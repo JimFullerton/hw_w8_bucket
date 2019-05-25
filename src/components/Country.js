@@ -4,16 +4,22 @@ import './Country.css'
 
 const Country = (props) => {
 
-  console.log(props);
-
   const handleDoneClick = (evt) => {
-    console.log('in Country, button click, logging evt', evt.target.value);
     const bucketId = evt.target.value;
     props.markAsDone(bucketId);
-    console.log('other side of call');
   }
 
-  const done = props.bucketItem;
+  // const formatButton = (evt) => {
+  //   if (props.bucketItem.done === true) {
+  //     return (
+  //       <button value={props.bucketItem.country} id='done-button' onClick={handleDoneClick}>Mark As Done</button>
+  //     )
+  //   } else {
+  //     return (
+  //       <button value={props.bucketItem.country} id='clicked-done-button'>Now Visited</button>
+  //     )
+  //   }
+  // }
 
   return (
     <div className='grid-item' id='country-card'>
@@ -29,7 +35,6 @@ const Country = (props) => {
 
 const mapDispatchToProps = (dispatch) => ({
   markAsDone(bucketId) {
-    console.log('in dispatch, logging bucketId', bucketId);
     dispatch({
       type: 'MARK_AS_DONE',
       bucketId
@@ -38,5 +43,3 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(null, mapDispatchToProps)(Country);
-
-// export default Country;

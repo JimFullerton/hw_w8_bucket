@@ -5,7 +5,6 @@ import './main.css'
 const ShowCountries = (props) => {
 
   const bucketList = props.bucket.map((bucketItem, index) => {
-    // const countryName = props.countries[index].name;
     return <Country
       bucketItem={bucketItem}
       key={index}
@@ -14,7 +13,6 @@ const ShowCountries = (props) => {
       region={props.countries[bucketItem.country].region}
       subregion={props.countries[bucketItem.country].subregion}
       flag={props.countries[bucketItem.country].flag}
-      // markDoneFunc={props.markAsDone()}
     />
   });
 
