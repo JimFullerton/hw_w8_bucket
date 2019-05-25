@@ -71,10 +71,11 @@ class PickCountries extends Component {
     return (
       <>
       <div className='flex'>
-        {this.filterLetters()}
+        Filter: {this.filterLetters()}
       </div>
 
       <form onSubmit={this.handleFormSubmit} autoComplete='off'>
+      <label htmlFor='countryPick'>Pick: </label>
         <select
           name='countryPick'
           id='countryPick'
@@ -84,6 +85,7 @@ class PickCountries extends Component {
           {this.selectOptions()}
         </select>
         <input type='submit' value='Add To List' />
+        <h4 id="list-divider"className="ui horizontal divider header">The List</h4>
       </form>
       </>
     )

@@ -15,6 +15,7 @@ class App extends Component {
       <>
         <h1>Bucket List App</h1>
         <PickCountriesBox />
+        <h2>The List</h2>
         <ShowCountriesBox />
       </>
     )
