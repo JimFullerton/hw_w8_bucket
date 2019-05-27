@@ -9,21 +9,21 @@ const Country = (props) => {
     props.markAsDone(bucketId);
   }
 
-  // const formatButton = (evt) => {
-  //   if (props.bucketItem.done === true) {
-  //     return (
-  //       <button value={props.bucketItem.country} id='done-button' onClick={handleDoneClick}>Mark As Done</button>
-  //     )
-  //   } else {
-  //     return (
-  //       <button value={props.bucketItem.country} id='clicked-done-button'>Now Visited</button>
-  //     )
-  //   }
-  // }
+  const formatButton = () => {
+    if (props.bucketItem.done === false) {
+      return (
+        <button value={props.bucketItem.country} id='done-button' onClick={handleDoneClick}>Mark As Done</button>
+      )
+    } else {
+      return (
+        <button value={props.bucketItem.country} id='clicked-done-button'>Now Visited</button>
+      )
+    }
+  }
 
   return (
     <div className='grid-item' id='country-card'>
-      <button value={props.bucketItem.country} id='done-button' onClick={handleDoneClick}>Mark As Done</button>
+      {formatButton()}
       <p id='country-name'>{props.name}</p>
       <p id='region-info'>{props.region} / {props.subregion}</p>
       <div id='flag-div' className='image'>
@@ -32,6 +32,7 @@ const Country = (props) => {
     </div>
   )
 }
+// <button value={props.bucketItem.country} id='done-button' onClick={handleDoneClick}>Mark As Done</button>
 
 const mapDispatchToProps = (dispatch) => ({
   markAsDone(bucketId) {
